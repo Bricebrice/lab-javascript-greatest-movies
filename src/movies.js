@@ -30,22 +30,15 @@ function scoresAverage(moviesArray) {
     if (movie.score !== null && movie.score !== undefined) {
       return accumulator + movie.score;
     } else {
-      return 0;
+      return accumulator;
     }
   }, 0);
 
-  // Count of movies with if score is not null nor undefined
-  const moviesWithScore = moviesArray.filter(
-    (movie) => movie.score !== null && movie.score !== undefined
-  );
-
   // Calculate average
-  return Math.round((scoresSum / moviesWithScore.length) * 100) / 100;
+  return Math.round((scoresSum / moviesArray.length) * 100) / 100;
 }
 
-console.log(scoresAverage(movies)); // => 8,31
-
-// console.log(scoresAverage(movies)); // => 8,31
+//console.log(scoresAverage(movies)); // => 8,31
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) {}
