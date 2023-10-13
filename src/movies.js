@@ -61,10 +61,23 @@ function orderByYear(moviesArray) {
   });
   return newMoviesArray;
 }
-console.log(orderByYear(movies));
+// console.log(orderByYear(movies));
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically(moviesArray) {}
+// Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
+function orderAlphabetically(moviesArray) {
+  // order by title in same array
+  const orderByTitle = orderByYear(moviesArray).sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+
+  // keep only title in new array
+  const newMoviesArray = orderByTitle.map((movie) => movie.title);
+
+  // return first 20 results
+  return newMoviesArray.slice(0, 20);
+}
+console.log(orderAlphabetically(movies));
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {}
