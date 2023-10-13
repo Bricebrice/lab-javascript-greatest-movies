@@ -30,18 +30,20 @@ function scoresAverage(moviesArray) {
     if (movie.score !== null && movie.score !== undefined) {
       return accumulator + movie.score;
     } else {
-      return accumulator;
+      return 0;
     }
   }, 0);
 
-  // Count of movies with score
-  const moviesCount = moviesArray.filter(
+  // Count of movies with if score is not null nor undefined
+  const moviesWithScore = moviesArray.filter(
     (movie) => movie.score !== null && movie.score !== undefined
   );
 
   // Calculate average
-  return Math.round((scoresSum / moviesCount.length) * 100) / 100;
+  return Math.round((scoresSum / moviesWithScore.length) * 100) / 100;
 }
+
+console.log(scoresAverage(movies)); // => 8,31
 
 // console.log(scoresAverage(movies)); // => 8,31
 
