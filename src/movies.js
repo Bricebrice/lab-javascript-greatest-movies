@@ -4,7 +4,14 @@
 
 function getAllDirectors(moviesArray) {
   const newArray = moviesArray.map((movie) => movie.director);
-  return newArray;
+  // Bonus
+  const newArrayRmDup = [];
+  newArray.forEach((element) => {
+    if (!newArrayRmDup.includes(element)) {
+      newArrayRmDup.push(element);
+    }
+  });
+  return newArrayRmDup;
 }
 // console.log(getAllDirectors(movies)); // :(
 
