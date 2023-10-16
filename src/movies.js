@@ -87,7 +87,22 @@ function orderAlphabetically(moviesArray) {
 console.log(orderAlphabetically(movies));
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(moviesArray) {}
+function turnHoursToMinutes(moviesArray) {
+  const updatedMoviesArray = moviesArray.map((movie) => {
+    console.log("movie.duration is," + movie.duration);
+    let parts = movie.duration.split(" ");
+    console.log("parts is," + parts);
+    return movie.duration;
+  });
+}
+console.log("output is :" + turnHoursToMinutes(movies))
+
+//     title: 'Jaws',
+//     year: 1975,
+//     director: 'Steven Spielberg',
+//     duration: '2h 4min',
+//     genre: ['Adventure', 'Drama', 'Thriller'],
+//     score: 8
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) {}
