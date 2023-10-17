@@ -84,36 +84,32 @@ function orderAlphabetically(moviesArray) {
   // return first 20 results
   return newMoviesArray.slice(0, 20);
 }
-console.log(orderAlphabetically(movies));
+// console.log(orderAlphabetically(movies));
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {
   const updatedMoviesArray = moviesArray.map((movie) => {
-    // console.log("movie.duration is," + movie.duration);
     let parts = movie.duration.split(" ");
     let totalMinutes = 0;
-    console.log(parts);
+    // console.log(parts);
     for (let i = 0; i < parts.length; i++) {
       if (parts[i].includes("h")) {
-        console.log("includes h " + parts[i]);
-        // totalMinutes += parts[i];
-        let hoursConverted = 0;
-        hoursConverted += Number(parts[i].slice(0, -1) * 60);
+        let hoursConverted = Number(parts[i].slice(0, -1)) * 60;
         totalMinutes += hoursConverted;
-        console.log("totalMinutesFromHours " + totalMinutes);
       } else if (parts[i].includes("min")) {
-        let mins = 0;
-        mins += Number(parts[i].slice(0, -3));
+        let mins = Number(parts[i].slice(0, -3));
         totalMinutes += mins;
-        console.log(
-          "totalMinutesFromMinutes " + totalMinutes + " from " + mins
-        );
       }
     }
-    return movie.duration;
+    movie.duration = totalMinutes;
+    console.log("movie.duration is: " + movie.duration);
+    return movie;
   });
+  console.log("updatedMoviesArray " + updatedMoviesArray);
+  return updatedMoviesArray;
 }
-console.log("output is :" + turnHoursToMinutes(movies));
+
+console.log("output is : ", turnHoursToMinutes(movies));
 
 //     title: 'Jaws',
 //     year: 1975,
