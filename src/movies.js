@@ -89,9 +89,12 @@ function orderAlphabetically(moviesArray) {
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {
   const updatedMoviesArray = moviesArray.map((movie) => {
-    let parts = movie.duration.split(" ");
+    // new copy of movie to not alter the original array
+    let updatedMovie = { ...movie };
+    let parts = updatedMovie.duration.split(" ");
     let totalMinutes = 0;
     // console.log(parts);
+    // loop on each parts array converting hours to mins + sum
     for (let i = 0; i < parts.length; i++) {
       if (parts[i].includes("h")) {
         let hoursConverted = Number(parts[i].slice(0, -1)) * 60;
@@ -101,22 +104,15 @@ function turnHoursToMinutes(moviesArray) {
         totalMinutes += mins;
       }
     }
-    movie.duration = totalMinutes;
-    console.log("movie.duration is: " + movie.duration);
-    return movie;
+    // update duration and return new movie object
+    updatedMovie.duration = totalMinutes;
+    return updatedMovie;
   });
-  console.log("updatedMoviesArray " + updatedMoviesArray);
+  // new array updatedMoviesArray is a copy of moviesArray where movie was recreated to contain duration as a number
   return updatedMoviesArray;
 }
 
-console.log("output is : ", turnHoursToMinutes(movies));
-
-//     title: 'Jaws',
-//     year: 1975,
-//     director: 'Steven Spielberg',
-//     duration: '2h 4min',
-//     genre: ['Adventure', 'Drama', 'Thriller'],
-//     score: 8
+// console.log("output is : ", turnHoursToMinutes(movies));
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) {}
